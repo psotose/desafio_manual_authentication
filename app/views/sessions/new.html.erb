@@ -2,7 +2,7 @@
 <% if alert%>
     <%= alert%>
 <%end%>
-<%= form_with(model: @user, url: sessions_new_path, method: :post, local: true) do |f| %>
+<%= form_with(model: @user, url: sessions_path, method: :post, local: true) do |f| %>
     <% if @user.errors.any? %>
         <div class="error_messages">
             <h2>Form is invalid</h2>

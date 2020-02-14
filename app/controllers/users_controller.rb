@@ -6,10 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.user_id
-      redirect_to root_path    
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'Successfully Created User'    
     else  
-      render :new
+      redirect_to users_path, alert: 'Email or password invalid' 
+      #render :new
     end    
   end
 

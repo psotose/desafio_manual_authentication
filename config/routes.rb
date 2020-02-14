@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   #get 'sessions/new'
   #post 'sessions/create'
   #get 'sessions/destroy'
-  get 'users/sign_up', to: "users#new"
-  post 'users', to: "users#create"
-  get 'users/sign_in', to: 'sessions#new'
+  get 'users/sign_up', to: "users#new", as: 'users'
+  post 'users/sign_up', to: "users#create"
+  #get 'users/sign_in', to: 'sessions#new', as: 'sessions'
   get 'users/show'
+  delete 'users/logout', to: 'sessions#destroy', as: 'destroy_user_session'
   
  
   root 'stories#index'
