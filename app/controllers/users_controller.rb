@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.includes(:stories).find(helpers.current_user.id)
   end
 
 private
